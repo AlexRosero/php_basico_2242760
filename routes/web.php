@@ -48,6 +48,65 @@ Route::get("arreglos" , function(){
 
 });
 
+route:: get('paises' , function () {
+
+$paises = [
+	"COLOMBIA" =>[
+
+     "Capital" => "Bogota",
+     "Moneda" => "Peso",
+     "Poblacion" => 50.34,
+
+
+	],
+
+	"PERU" =>[
+
+     "Capital" => "Lima",
+     "Moneda" => "Sol",
+     "Poblacion" => 32.80,
+
+
+	],
+
+
+	"PARAGUAY" => [
+
+
+     "Capital" => "Asuncion",
+     "Moneda" => "Guaraní paraguayo",
+     "Poblacion" =>7.359,
+
+	]
+
+
+
+];
+
+foreach ($paises as $nombrePais => $pais) {
+
+	echo "<h4>$nombrePais</h4>";
+	echo "<pre>";
+	//print_r($pais);
+    print_r($pais["Capital"]);
+    echo "</pre>";
+    echo "<hr />";
+
+	
+}
+
+
+//Orden de dimensión, arrary individual ------>
+//echo "<pre>";
+//print_r($paises["COLOMBIA"]);
+//print_r($paises["COLOMBIA"]["Moneda"]);
+//echo "</pre>";
+
+
+
+
+});
+
 
 
 
