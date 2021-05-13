@@ -80,27 +80,10 @@ $paises = [
 	]
 
 
-
 ];
 
-foreach ($paises as $nombrePais => $pais) {
-
-	echo "<h4>$nombrePais</h4>";
-	echo "<pre>";
-	//print_r($pais);
-    print_r($pais["Capital"]);
-    echo "</pre>";
-    echo "<hr />";
-
-	
-}
-
-
-//Orden de dimensión, arrary individual ------>
-//echo "<pre>";
-//print_r($paises["COLOMBIA"]);
-//print_r($paises["COLOMBIA"]["Moneda"]);
-//echo "</pre>";
+//Invocar la vista
+return view("paises")->with("naciones" ,$paises);
 
 
 
