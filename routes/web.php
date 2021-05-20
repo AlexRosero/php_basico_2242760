@@ -35,7 +35,7 @@ route::get('variables' ,function(){
 
 Route::get("arreglos" , function(){
 	//Arreglo: Estructura de datos.
-	$estudiantes = [  "AN" => "Ana" , 
+	$estudiantes = [  "AN" => "Ana" ,
 					  "MA" => "Maria" ,
 					  "JO" => "Jorge"
 				   ];
@@ -89,7 +89,7 @@ return view("paises")->with("naciones" ,$paises);
 });
 
 Route::get('formulario_buscador' , "MetabuscadorController@formulario_buscador");
-Route::post('buscar', "");
+Route::post('buscar' , "MetabuscadorController@buscar");
 
 
 
