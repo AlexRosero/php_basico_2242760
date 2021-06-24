@@ -15,6 +15,24 @@ class Cliente extends Model
     //omitir campos de auditoria
     public $timestamps = false;
 
+
+    //relacion 1 - M Cliente
+
+    public function clientes (){
+        return $this->hasMany('App\Cliente' , 'SupportRepId');
+    }
+
+
+    //relacion 1 - M Cliente y Facturas
+
+    public function factura (){
+
+            //utilizp metodo de eloquent: hasMany
+            return $this->hasMany('App\Factura' , 'CustomerId');
+
+    }
+
+
 }
 
 
