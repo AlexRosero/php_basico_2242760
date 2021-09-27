@@ -89,8 +89,49 @@ return view("paises")->with("naciones" ,$paises);
 });
 
 Route::get('formulario_buscador' , "MetabuscadorController@formulario_buscador");
+
 Route::post('buscar' , "MetabuscadorController@buscar");
 
 
+Route::resource('clientes', 'ClienteController')->middleware('miautenticacion');
+Route::get('clientes/{cliente}/habilitar', "ClienteController@habilitar")
+            ->name('clientes.habilitar')
+            ->middleware('miautenticacion');
 
 
+Route::resource('empleados', EmpleadoController::class);
+
+Route::get('plantilla' , function(){
+    return view('plantillas.template');
+});
+
+
+/*  Rutas de seguridad y autentitación*/
+
+Route::resource ('usuarios', 'UserController');
+
+/* Rutas de autenticación*/
+
+Route::get('login' , 'Auth\LoginController@form')->name('login.form');
+Route::post('login' , 'Auth\LoginController@login')->name('login.verify');
+
+/* Ruta Cerrar Sesión */
+
+Route::get('logout' , 'Auth\LoginController@logout')->name('logout');
+
+/* Rutas de reset password*/
+ Route::get('confirmar-correo' , 'Auth\ResetPasswordController@emailform');
+ Route::post('enviar-link' , 'Auth\ResetPasswordController@submitlink')
+ ->name("send.link");
+
+
+Route::get('reset-password/{token}' ,
+          'Auth\ResetPasswordController@resetform');
+
+Route::post('reset-password' ,
+          'Auth\ResetPasswordController@resetpassword'
+          )->name('reset.password');
+
+//Ruta pdf
+
+Route::get('pdf', 'PDFController@pdf');
